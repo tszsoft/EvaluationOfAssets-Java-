@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:util="http://www.springframework.org/schema/util" xmlns:mvc="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/context 
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       http://www.springframework.org/schema/util 
+       http://www.springframework.org/schema/util/spring-util-3.0.xsd 
+       http://www.springframework.org/schema/mvc 
+       http://www.springframework.org/schema/mvc/spring-mvc.xsd
+      ">
+
+    <!-- 开启注解模式驱动 -->
+    <mvc:annotation-driven></mvc:annotation-driven>
+
+    <!-- 扫包 -->
+    <context:component-scan base-package="com.tszsoft.eoa.*"></context:component-scan>
+
+    <!-- 静态资源过滤 -->
+    <mvc:resources location="/resources/" mapping="/resources/**" />
+
+    <!-- 配置mvc的拦截器 可以配置多个  -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <!-- 需要被拦截的路径  -->
+            <mvc:mapping path="/pages/**" />
+            <!-- 拦截处理的interceptor  -->
+            <bean class="com.tszsoft.eoa.interceptor.MemberInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- 视图渲染 -->
+    <bean
+        class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!-- 制定页面存放的路径 -->
+        <property name="prefix" value="/WEB-INF/pages/"></property>
+        <!-- 文件的后缀 -->
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+
+    <!-- 文件上传配置设置 -->
+    <!-- <bean id="multipartResolver"
+        class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8" />
+        <property name="maxUploadSize" value="10485760000" />
+        <property name="maxInMemorySize" value="40960" />
+    </bean> -->
+
+</beans>

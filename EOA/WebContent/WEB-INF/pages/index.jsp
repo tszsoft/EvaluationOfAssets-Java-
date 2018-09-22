@@ -14,23 +14,6 @@
 
 <title>Insert title here</title>
 
-<style>
-.header {
-    width: 100px;
-    align: center;
-}
-
-.login {
-    width: 100px;
-    align: center;
-}
-
-.footer {
-    width: 100px;
-    align: center;
-}
-</style>
-
 </head>
 <body style="font-family: 微软雅黑; padding: 0px; margin: 0px;">
 <form action="login">

@@ -50,7 +50,7 @@
                     <td style="width: 60px;" align="right"><span>密码 : </span></td>
                     <td><input id="pswd" class="textarea" type="password" value="" placeholder="请输入密码"></td>
                 </tr>
-                <tr id="message_area_password">
+                <tr id="message_area_password" style="display: none;">
                     <td>
                     </td>
                     <td class="ui-widget">

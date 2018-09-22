@@ -9,17 +9,16 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ViewController {
 
-	@RequestMapping("/view")
-	public ModelAndView view(HttpServletRequest request) {
-		String path = request.getParameter("path") + "";
-		ModelAndView mav = new ModelAndView();
-		mav.setViewName(path);
+    @RequestMapping("/view")
+    public ModelAndView view(HttpServletRequest request) {
+        String path = request.getParameter("path") + "";
+        ModelAndView mav = new ModelAndView();
+        mav.setViewName(path);
 
-		// 获取项目根路径
-		String contextPath = request.getContextPath();
-		mav.addObject("contextPath", contextPath);
+        // 获取项目根路径
+        String contextPath = request.getContextPath();
+        mav.addObject("contextPath", contextPath);
 
-		return mav;
-	}
-	
+        return mav;
+    }
 }

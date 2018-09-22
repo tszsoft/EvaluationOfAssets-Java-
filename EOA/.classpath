@@ -76,5 +76,10 @@
 	<classpathentry kind="lib" path="/Users/liuxiaoliang/Documents/GitHub_Repositories/EOA/WebContent/WEB-INF/lib/spring-websocket-5.0.9.RELEASE-javadoc.jar"/>
 	<classpathentry kind="lib" path="/Users/liuxiaoliang/Documents/GitHub_Repositories/EOA/WebContent/WEB-INF/lib/spring-websocket-5.0.9.RELEASE-sources.jar"/>
 	<classpathentry kind="lib" path="/Users/liuxiaoliang/Documents/GitHub_Repositories/EOA/WebContent/WEB-INF/lib/spring-websocket-5.0.9.RELEASE.jar"/>
+	<classpathentry kind="lib" path="/Users/liuxiaoliang/Documents/GitHub_Repositories/EOA/WebContent/WEB-INF/lib/commons-lang3-3.8-javadoc.jar"/>
+	<classpathentry kind="lib" path="/Users/liuxiaoliang/Documents/GitHub_Repositories/EOA/WebContent/WEB-INF/lib/commons-lang3-3.8-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/liuxiaoliang/Documents/GitHub_Repositories/EOA/WebContent/WEB-INF/lib/commons-lang3-3.8-test-sources.jar"/>
+	<classpathentry kind="lib" path="/Users/liuxiaoliang/Documents/GitHub_Repositories/EOA/WebContent/WEB-INF/lib/commons-lang3-3.8-tests.jar"/>
+	<classpathentry kind="lib" path="/Users/liuxiaoliang/Documents/GitHub_Repositories/EOA/WebContent/WEB-INF/lib/commons-lang3-3.8.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

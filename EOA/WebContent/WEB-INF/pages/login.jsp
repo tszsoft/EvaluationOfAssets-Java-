@@ -54,7 +54,7 @@ $(document).ready(function(){
                     <table>
                         <tr>
                             <td style="width: 60px;" align="right"><span>用户名 : </span></td>
-                            <td><input id="uid" class="textarea" type="text" value="" placeholder="请输入用户名"></td>
+                            <td><input id="uid" name="userid" class="textarea" type="text" value="" placeholder="请输入用户名"></td>
                         </tr>
                         <tr id="message_area_userid" style="display: none;">
                             <td>
@@ -68,7 +68,7 @@ $(document).ready(function(){
                         </tr>
                         <tr>
                             <td style="width: 60px;" align="right"><span>密码 : </span></td>
-                            <td><input id="pswd" class="textarea" type="password" value="" placeholder="请输入密码"></td>
+                            <td><input id="pswd" name="password" class="textarea" type="password" value="" placeholder="请输入密码"></td>
                         </tr>
                         <tr id="message_area_password" style="display: none;">
                             <td>

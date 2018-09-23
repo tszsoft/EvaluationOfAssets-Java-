@@ -16,22 +16,86 @@
 $(document).ready(function(){
     
     $("#btnLogin").click(function(){
+        
         var strUserID = $("#uid").val();
+        var strPassWD = $("#pswd").val();
+        
         if (strUserID === null || strUserID === '') {
             $("#message_area_userid").css('display','');
             $("#msg_uid_err").text('用户名不能为空');
-        } else {
-            $("#message_area_userid").css('display','none');
         }
-        
-        var strPassWD = $("#pswd").val();
-        if (strPassWD === null || strPassWD === '') {
+        else if (strPassWD === null || strPassWD === '') {
+            $("#message_area_userid").css('display','none');
             $("#message_area_password").css('display','');
             $("#msg_pass_err").text('密码不能为空');
-        } else {
+        }
+        else {
             $("#message_area_password").css('display','none');
+            login();
         }
     });
+    
+/*     var message = ${message};
+    var retCode = ${retCode};
+    if (message === null || message === '') {
+        
+    }
+    else if (retCode == 1) {
+        $("#messageArea").css('display','');
+    }
+    else if (retCode == 2) {
+        
+    }
+    else if (retCode == 3) {
+        
+    }
+    else if (retCode == 4) {
+        
+    } */
+    
+    function login() {
+         $.ajax({
+            type: "POST",
+//            contentType: "application/json; charset=utf-8",
+//            contentType: false,
+            dataType: "json",
+            url: "${pageContext.request.contextPath}/view?path=login",
+            data: $("#loginForm").serialize(),
+            success: function (result) {
+                console.log(result);
+                if (result.retCode == "0") {
+                    console.log("正常终了");
+                    //$.get("${pageContext.request.contextPath}/view?path=loginSuccess");
+                    window.location.href = "${pageContext.request.contextPath}/view?path=loginSuccess";
+                }
+                else if (result.retCode == "3") {
+                    $("#message_area_userid").css('display','');
+                    $("#message_area_password").css('display','none');
+                    $("#msg_uid_err").text(result.message);
+                }
+                else if (result.retCode == "4") {
+                    $("#message_area_userid").css('display','none');
+                    $("#message_area_password").css('display','');
+                    $("#msg_pass_err").text(result.message);
+                };
+            },
+            error: function () {
+                console.log("异常终了");
+            }
+        });
+/*         var userid = $("#uid").val();
+        var password = $("#pswd").val();
+        $.post("${pageContext.request.contextPath}/login",
+                {"userid":userid,"password":password},
+                function (result) {
+                    if (result.retCode == "0") {
+                        console.log("正常终了");
+                    } else {
+                    	console.log("异常终了");
+                    }
+                },
+                "json"); */
+    }
     
 });
 </script>
@@ -40,7 +104,8 @@ $(document).ready(function(){
 
 </head>
 <body style="font-family: 微软雅黑; padding: 0px; margin: 0px;">
-<form action="login" method="post">
+<form id="loginForm" action="login" method="post">
+<!-- <form id="loginForm"> -->
     <div align="center">
         <div style="width: 500px;margin-top: 30px;">
             <div class="ui-widget-header">
@@ -83,7 +148,7 @@ $(document).ready(function(){
                     </table>
                 </div>
                 <div align="center">
-                    <input id="btnLogin" class="ui-button ui-corner-all ui-widget" type="submit" value="login" style="width: 200px;">
+                    <input id="btnLogin" class="ui-button ui-corner-all ui-widget" type="button" value="login" style="width: 200px;">
                 </div>
                 <br/>
             </div>
